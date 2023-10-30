@@ -17,7 +17,7 @@ class ForgetPasswordScreen extends StatelessWidget {
         appBar: AppBar(
           title: Center(
             child: Text(
-              "Reset Pasword",
+              "35".tr,
               style: Theme.of(context)
                   .textTheme
                   .titleSmall
@@ -35,20 +35,20 @@ class ForgetPasswordScreen extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
-                child: const CustomTextSmallBody(
+                child:  CustomTextSmallBody(
                     textBody:
-                        "Please enter your email to receive alink to  create a new password via email"),
+                        "29".tr),
               ),
               CustomTextFormField(
-                  lableText: "Email",
-                  hintText: "Enter Your Email",
+                  lableText: "18".tr,
+                  hintText: "12".tr,
                   icon: Icons.email,
                   myController: controller.email),
               CustomButtonShared(
                   onPressed: () {
                     controller.goToVerifyCode();
                   },
-                  buttonText: "Send")
+                  buttonText: "33".tr)
             ],
           ),
         )));

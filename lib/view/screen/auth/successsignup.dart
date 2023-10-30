@@ -31,7 +31,7 @@ class SuccessSignUp extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Success",
+                  "32".tr,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
@@ -48,7 +48,7 @@ class SuccessSignUp extends StatelessWidget {
                     onPressed: () {
                       controller.goToSignin();
                     },
-                    buttonText: "Go To Sigin"),
+                    buttonText: "31".tr),
                     
               ],
             ),

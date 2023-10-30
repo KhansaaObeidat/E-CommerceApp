@@ -29,7 +29,7 @@ class MyTranslation extends Translations {
           "22": "ادخل رقم الهاتف",
           "23": "ادخل اسم المستخدم",
           "24":
-              "انشاء حساب من خلال البريد وكلمة المرور او من خلال وسائل التواصل الاجتماعي",
+              "انشاء حساب من خلال البريد وكلمة المرور ي",
           "25": " لديك حساب ? ",
           "26": "تسجيل الدخول",
           "27": "فحص البريد الالكتروني",
@@ -77,7 +77,7 @@ class MyTranslation extends Translations {
           "22": "Enter Your Phone",
           "23": "Enter Your Username",
           "24":
-              "Sign Up With Your Email And Password OR Continue With Social Media",
+              "Sign Up With Your Email And Password",
           "25": " have an account ? ",
           "26": "SignIn",
           "27": "Check Email",

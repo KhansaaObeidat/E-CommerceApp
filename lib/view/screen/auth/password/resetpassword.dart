@@ -39,13 +39,13 @@ class ResetPasswordScreen extends StatelessWidget {
             ),
             CustomTextSmallBody(
                 textBody:
-                    "Please enter your email to receive a link to  create a new password via email"),
+                    "35".tr),
             SizedBox(
               height: 30,
             ),
             CustomTextFormField(
-                lableText: "New Password",
-                hintText: "Enter New Password",
+                lableText: "19".tr,
+                hintText: "35".tr,
                 icon: Icons.password,
                 myController: controller.rePassword),
             SizedBox(
@@ -60,7 +60,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 onPressed: () {
                   controller.goToSuccessResetPassword();
                 },
-                buttonText: "Submit")
+                buttonText: "33".tr)
           ],
         ),
       )),

@@ -29,20 +29,20 @@ class CheckEmail extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Check Email",
+                  "27".tr,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 CustomTextFormField(
-                    lableText: "check email",
-                    hintText: "check",
+                    lableText: "27".tr,
+                    hintText: "30".tr,
                     myController: controller.email),
                 Spacer(),
                 CustomButtonShared(
                     onPressed: () {
                       controller.goToSuccessSignUp();
                     },
-                    buttonText: "check"),
+                    buttonText: "30".tr),
               ],
             ),
           ),

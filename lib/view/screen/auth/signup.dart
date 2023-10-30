@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Sign Up Screen",
+          "17".tr,
           style: Theme.of(context)
               .textTheme
               .titleSmall
@@ -43,24 +43,24 @@ class SignUpScreen extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                 ),
-                const CustomTextSmallBody(
-                    textBody: "Add your details to sign up"),
+                 CustomTextSmallBody(
+                    textBody: "25".tr),
                 Container(
                   margin:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                   child: Column(children: [
                     CustomTextFormField(
                       icon: Icons.person_outline,
-                      lableText: "Name",
-                      hintText: 'Enter Your Name',
+                      lableText: "20".tr,
+                      hintText: "23".tr,
                       myController: controller.name,
                     ),
                     const SizedBox(
                       height: 15,
                     ),
                     CustomTextFormField(
-                      lableText: "Email",
-                      hintText: 'Enter Your Email',
+                      lableText: "18".tr,
+                      hintText: "12".tr,
                       icon: Icons.email,
                       myController: controller.email,
                     ),
@@ -68,15 +68,15 @@ class SignUpScreen extends StatelessWidget {
                       height: 15,
                     ),
                     CustomTextFormField(
-                      lableText: "Mobile",
-                      hintText: 'Enter Your Mobile',
+                      lableText: "21".tr,
+                      hintText: "22".tr,
                       icon: Icons.phone,
                       myController: controller.mobile,
                     ),
                     const SizedBox(height: 15),
                     CustomTextFormField(
-                      lableText: "Password",
-                      hintText: 'Enter  Password',
+                      lableText: "35".tr,
+                      hintText: '13'.tr,
                       icon: Icons.password,
                       myController: controller.password,
                     ),
@@ -84,8 +84,8 @@ class SignUpScreen extends StatelessWidget {
                       height: 15,
                     ),
                     CustomTextFormField(
-                      lableText: "Re-Password",
-                      hintText: 'Enter  Re-Password',
+                      lableText: "35".tr,
+                      hintText: '13'.tr,
                       icon: Icons.password,
                       myController: controller.repassword,
                     ),
@@ -94,10 +94,10 @@ class SignUpScreen extends StatelessWidget {
                         onPressed: () {
                           controller.signUp();
                         },
-                        buttonText: 'Sign Up'),
+                        buttonText: "17".tr),
                     CustomTextSign(
-                      text1: "Already have an Account?",
-                      textButton1: "Log In",
+                      text1: "17".tr,
+                      textButton1: "26".tr,
                       onPressed: () {
                         controller.goToLogin();
                       },
