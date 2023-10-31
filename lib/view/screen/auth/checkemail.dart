@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/controller/auth/checkemailcontroller.dart';
 import 'package:e_commerce_app/core/constant/appcolor.dart';
+import 'package:e_commerce_app/core/functions/input_validator.dart';
 import 'package:e_commerce_app/core/shared/custombuttonshared.dart';
 import 'package:e_commerce_app/view/widget/auth/emailtextformfield.dart';
 import 'package:flutter/material.dart';
@@ -26,24 +27,29 @@ class CheckEmail extends StatelessWidget {
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(30.0),
-            child: Column(
-              children: [
-                Text(
-                  "27".tr,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                CustomTextFormField(
-                    lableText: "27".tr,
-                    hintText: "30".tr,
-                    myController: controller.email),
-                Spacer(),
-                CustomButtonShared(
-                    onPressed: () {
-                      controller.goToSuccessSignUp();
-                    },
-                    buttonText: "30".tr),
-              ],
+            child: Form(
+              key: controller.formState,
+              child: Column(
+                children: [
+                  Text(
+                    "27".tr,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                  CustomTextFormField(valid: (val) {
+                            return inputValidator(val!, 10, 14, "email");
+                          },
+                      lableText: "27".tr,
+                      hintText: "30".tr,
+                      myController: controller.email),
+                  Spacer(),
+                  CustomButtonShared(
+                      onPressed: () {
+                        controller.goToSuccessSignUp();
+                      },
+                      buttonText: "30".tr),
+                ],
+              ),
             ),
           ),
         ));

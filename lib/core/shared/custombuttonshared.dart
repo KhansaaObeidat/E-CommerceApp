@@ -9,7 +9,7 @@ class CustomButtonShared extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.symmetric(vertical: 30),
+        margin: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
           color: AppColor.navyBlue,
           borderRadius: BorderRadius.circular(20),

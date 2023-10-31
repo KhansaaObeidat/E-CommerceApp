@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/controller/auth/passwordcontroller/forgetpaswwordcontroller.dart';
 import 'package:e_commerce_app/core/constant/appcolor.dart';
+import 'package:e_commerce_app/core/functions/input_validator.dart';
 import 'package:e_commerce_app/core/shared/custombuttonshared.dart';
 import 'package:e_commerce_app/view/widget/auth/customtext_s_body.dart';
 import 'package:e_commerce_app/view/widget/auth/emailtextformfield.dart';
@@ -34,12 +35,14 @@ class ForgetPasswordScreen extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
-                child:  CustomTextSmallBody(
-                    textBody:
-                        "29".tr),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+                child: CustomTextSmallBody(textBody: "29".tr),
               ),
               CustomTextFormField(
+                  valid: (val) {
+                    return inputValidator(val!, 10, 14, "phonenumber");
+                  },
                   lableText: "18".tr,
                   hintText: "12".tr,
                   icon: Icons.email,

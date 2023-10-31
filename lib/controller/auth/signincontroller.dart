@@ -9,11 +9,17 @@ abstract class SignInController extends GetxController {
 }
 
 class SignInControllerImp extends SignInController {
+  GlobalKey<FormState> formState = GlobalKey<FormState>();
   late TextEditingController email;
   late TextEditingController password;
   @override
   signIn() {
-    throw UnimplementedError();
+    var dataForm = formState.currentState;
+    if (dataForm!.validate()) {
+      return print("Valid");
+    } else {
+      print("Not Valid");
+    }
   }
 
   @override

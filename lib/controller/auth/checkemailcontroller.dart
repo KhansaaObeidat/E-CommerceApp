@@ -7,6 +7,7 @@ abstract class CheckEmailController extends GetxController {
 }
 
 class CheckEmailImpController extends CheckEmailController {
+  GlobalKey<FormState> formState = GlobalKey<FormState>();
   late TextEditingController email;
 
   @override
@@ -17,6 +18,9 @@ class CheckEmailImpController extends CheckEmailController {
 
   @override
   goToSuccessSignUp() {
-    Get.offAllNamed(AppRoute.verifyCodeSignUp);
+    var dataForm = formState.currentState;
+    if (dataForm!.validate()) {
+      Get.offAllNamed(AppRoute.verifyCodeSignUp);
+    }
   }
 }

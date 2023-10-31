@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/controller/auth/signupcontroller.dart';
 import 'package:e_commerce_app/core/constant/appcolor.dart';
+import 'package:e_commerce_app/core/functions/input_validator.dart';
 import 'package:e_commerce_app/core/shared/custombuttonshared.dart';
 import 'package:e_commerce_app/view/widget/auth/customtext_s_body.dart';
 import 'package:e_commerce_app/view/widget/auth/emailtextformfield.dart';
@@ -33,78 +34,95 @@ class SignUpScreen extends StatelessWidget {
         },
         child: SingleChildScrollView(
           child: Center(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 150,
-                  width: 230,
-                  child: Image.asset(
-                    AppImageAsset.logo,
-                    fit: BoxFit.fill,
+            child: Form(
+              key: controller.formState,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 150,
+                    width: 230,
+                    child: Image.asset(
+                      AppImageAsset.logo,
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                ),
-                 CustomTextSmallBody(
-                    textBody: "25".tr),
-                Container(
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                  child: Column(children: [
-                    CustomTextFormField(
-                      icon: Icons.person_outline,
-                      lableText: "20".tr,
-                      hintText: "23".tr,
-                      myController: controller.name,
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    CustomTextFormField(
-                      lableText: "18".tr,
-                      hintText: "12".tr,
-                      icon: Icons.email,
-                      myController: controller.email,
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    CustomTextFormField(
-                      lableText: "21".tr,
-                      hintText: "22".tr,
-                      icon: Icons.phone,
-                      myController: controller.mobile,
-                    ),
-                    const SizedBox(height: 15),
-                    CustomTextFormField(
-                      lableText: "35".tr,
-                      hintText: '13'.tr,
-                      icon: Icons.password,
-                      myController: controller.password,
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    CustomTextFormField(
-                      lableText: "35".tr,
-                      hintText: '13'.tr,
-                      icon: Icons.password,
-                      myController: controller.repassword,
-                    ),
-                    // ),
-                    CustomButtonShared(
-                        onPressed: () {
-                          controller.signUp();
+                  CustomTextSmallBody(textBody: "25".tr),
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 20),
+                    child: Column(children: [
+                      CustomTextFormField(
+                        valid: (val) {
+                          return inputValidator(val!, 8, 50, "username");
                         },
-                        buttonText: "17".tr),
-                    CustomTextSign(
-                      text1: "17".tr,
-                      textButton1: "26".tr,
-                      onPressed: () {
-                        controller.goToLogin();
-                      },
-                    )
-                  ]),
-                )
-              ],
+                        icon: Icons.person_outline,
+                        lableText: "20".tr,
+                        hintText: "23".tr,
+                        myController: controller.name,
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      CustomTextFormField(
+                        valid: (val) {
+                          return inputValidator(val!, 10, 100, "email");
+                        },
+                        lableText: "18".tr,
+                        hintText: "12".tr,
+                        icon: Icons.email,
+                        myController: controller.email,
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      CustomTextFormField(
+                        valid: (val) {
+                          return inputValidator(val!, 10, 14, "phonenumber");
+                        },
+                        lableText: "21".tr,
+                        hintText: "22".tr,
+                        icon: Icons.phone,
+                        myController: controller.mobile,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFormField(
+                        valid: (val) {
+                          return inputValidator(val!, 10, 14, "phonenumber");
+                        },
+                        lableText: "35".tr,
+                        hintText: '13'.tr,
+                        icon: Icons.password,
+                        myController: controller.password,
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      CustomTextFormField(
+                        valid: (val) {
+                          return inputValidator(val!, 10, 14, "phonenumber");
+                        },
+                        lableText: "35".tr,
+                        hintText: '13'.tr,
+                        icon: Icons.password,
+                        myController: controller.repassword,
+                      ),
+                      // ),
+                      CustomButtonShared(
+                          onPressed: () {
+                            controller.signUp();
+                          },
+                          buttonText: "17".tr),
+                      CustomTextSign(
+                        text1: "17".tr,
+                        textButton1: "26".tr,
+                        onPressed: () {
+                          controller.goToLogin();
+                        },
+                      )
+                    ]),
+                  )
+                ],
+              ),
             ),
           ),
         ),
