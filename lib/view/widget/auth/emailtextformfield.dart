@@ -7,17 +7,20 @@ class CustomTextFormField extends StatelessWidget {
       this.icon,
       required this.hintText,
       required this.myController,
-     required this.valid});
+     required this.isNumber,
+      required this.valid});
   final String lableText;
   final IconData? icon;
   final String hintText;
   final TextEditingController myController;
   final String? Function(String?) valid;
+  final bool isNumber;
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 400,
       child: TextFormField(
+        keyboardType: isNumber?TextInputType.numberWithOptions(decimal: true):TextInputType.emailAddress,
         validator: valid,
         controller: myController,
         style: Theme.of(context)

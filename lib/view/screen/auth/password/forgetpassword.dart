@@ -46,7 +46,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                   lableText: "18".tr,
                   hintText: "12".tr,
                   icon: Icons.email,
-                  myController: controller.email),
+                  myController: controller.email, isNumber: true,),
               CustomButtonShared(
                   onPressed: () {
                     controller.goToVerifyCode();

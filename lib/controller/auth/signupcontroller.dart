@@ -23,7 +23,7 @@ class SignUpControllerImp extends SignUpController {
   signUp() {
     var dataForm = formState.currentState;
     if (dataForm!.validate()) {
-      Get.offNamed(AppRoute.checkEmail);
+      Get.offNamed(AppRoute.verifyCodeSignUp);
     }
   }
 

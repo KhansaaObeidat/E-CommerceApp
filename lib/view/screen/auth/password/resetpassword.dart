@@ -44,7 +44,7 @@ class ResetPasswordScreen extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            CustomTextFormField(valid: (val) {
+            CustomTextFormField(isNumber: true,valid: (val) {
                           return inputValidator(val!, 10, 14, "phonenumber");
                         },
                 lableText: "19".tr,
@@ -54,7 +54,7 @@ class ResetPasswordScreen extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            CustomTextFormField(valid: (val) {
+            CustomTextFormField(isNumber: true,valid: (val) {
                           return inputValidator(val!, 10, 14, "phonenumber");
                         },
                 lableText: "Re-Password",
