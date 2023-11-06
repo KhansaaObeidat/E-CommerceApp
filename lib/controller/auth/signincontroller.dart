@@ -12,6 +12,12 @@ class SignInControllerImp extends SignInController {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
   late TextEditingController email;
   late TextEditingController password;
+  bool isSelected = true;
+  viewPassword() {
+    isSelected = !isSelected;
+    update();
+  }
+
   @override
   signIn() {
     var dataForm = formState.currentState;

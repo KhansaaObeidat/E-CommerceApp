@@ -14,6 +14,19 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController mobile;
   late TextEditingController password;
   late TextEditingController repassword;
+  bool isSelected = true;
+  bool isSelectedRePassword = true;
+
+  viewPassword() {
+    isSelected = !isSelected;
+    update();
+  }
+
+  viewRePassword() {
+    isSelectedRePassword = !isSelectedRePassword;
+    update();
+  }
+
   @override
   goToLogin() {
     Get.offAllNamed(AppRoute.signIn);
@@ -22,9 +35,8 @@ class SignUpControllerImp extends SignUpController {
   @override
   signUp() {
     var dataForm = formState.currentState;
-    if (dataForm!.validate()) {
-      Get.offNamed(AppRoute.verifyCodeSignUp);
-    }
+    if (dataForm!.validate()) {    Get.offNamed(AppRoute.verifyCodeSignUp);
+}
   }
 
   @override

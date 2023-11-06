@@ -6,8 +6,8 @@ import 'package:e_commerce_app/core/functions/input_validator.dart';
 import 'package:e_commerce_app/core/shared/custombuttonshared.dart';
 import 'package:e_commerce_app/view/widget/auth/customiconbutton.dart';
 import 'package:e_commerce_app/view/widget/auth/customtext_s_body.dart';
+import 'package:e_commerce_app/view/widget/auth/customtextformfield.dart';
 import 'package:e_commerce_app/view/widget/auth/customtexttitle.dart';
-import 'package:e_commerce_app/view/widget/auth/emailtextformfield.dart';
 import 'package:e_commerce_app/view/widget/auth/textsign.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,7 +17,7 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignInControllerImp controller = Get.put(SignInControllerImp());
+    // SignInControllerImp controller = Get.put(SignInControllerImp());
     return WillPopScope(
       onWillPop: () => alertAppExit(),
       child: Scaffold(
@@ -36,7 +36,7 @@ class SignInScreen extends StatelessWidget {
           onTap: () {
             FocusScope.of(context).unfocus();
           },
-          child: SafeArea(
+          child: GetBuilder<SignInControllerImp>(builder: (controller)=>SafeArea(
             child: SingleChildScrollView(
               child: Center(
                   child: Container(
@@ -72,15 +72,23 @@ class SignInScreen extends StatelessWidget {
                         isNumber: false,
                       ),
                       const SizedBox(height: 25),
-                      CustomTextFormField(
-                        valid: (val) {
-                          return inputValidator(val!, 10, 14, "phonenumber");
-                        },
-                        lableText: "19".tr,
-                        icon: (Icons.password),
-                        hintText: "13".tr,
-                        myController: controller.password,
-                        isNumber: true,
+                      GetBuilder<SignInControllerImp>(
+                        builder: (controller) => CustomTextFormField(
+                          obScure: controller.isSelected,
+                          onTap: () {
+                            controller.viewPassword();
+                          },
+                          valid: (val) {
+                            return inputValidator(val!, 10, 14, "phonenumber");
+                          },
+                          lableText: "19".tr,
+                          icon: controller.isSelected
+                              ? (Icons.visibility)
+                              : (Icons.visibility_off),
+                          hintText: "13".tr,
+                          myController: controller.password,
+                          isNumber: true,
+                        ),
                       ),
                       // const SizedBox(
                       //   height: 5,
@@ -148,7 +156,7 @@ class SignInScreen extends StatelessWidget {
                 ),
               )),
             ),
-          ),
+          ),)
         ),
       ),
     );

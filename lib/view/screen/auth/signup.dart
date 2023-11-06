@@ -4,7 +4,7 @@ import 'package:e_commerce_app/core/functions/alertappexit.dart';
 import 'package:e_commerce_app/core/functions/input_validator.dart';
 import 'package:e_commerce_app/core/shared/custombuttonshared.dart';
 import 'package:e_commerce_app/view/widget/auth/customtext_s_body.dart';
-import 'package:e_commerce_app/view/widget/auth/emailtextformfield.dart';
+import 'package:e_commerce_app/view/widget/auth/customtextformfield.dart';
 import 'package:e_commerce_app/view/widget/auth/textsign.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -92,30 +92,45 @@ class SignUpScreen extends StatelessWidget {
                             myController: controller.mobile,
                           ),
                           const SizedBox(height: 15),
-                          CustomTextFormField(
-                            isNumber: true,
-                            valid: (val) {
-                              return inputValidator(
-                                  val!, 10, 14, "phonenumber");
-                            },
-                            lableText: "35".tr,
-                            hintText: '13'.tr,
-                            icon: Icons.password,
-                            myController: controller.password,
-                          ),
+                          GetBuilder<SignUpControllerImp>(
+                              builder: (controller) => CustomTextFormField(
+                                    obScure: controller.isSelected,
+                                    onTap: () {
+                                      controller.viewPassword();
+                                    },
+                                    isNumber: true,
+                                    valid: (val) {
+                                      return inputValidator(
+                                          val!, 10, 14, "phonenumber");
+                                    },
+                                    lableText: "35".tr,
+                                    hintText: '13'.tr,
+                                    icon: controller.isSelected
+                                        ? Icons.visibility
+                                        : Icons.visibility_off,
+                                    myController: controller.password,
+                                  )),
                           const SizedBox(
                             height: 15,
                           ),
-                          CustomTextFormField(
-                            isNumber: true,
-                            valid: (val) {
-                              return inputValidator(
-                                  val!, 10, 14, "phonenumber");
-                            },
-                            lableText: "35".tr,
-                            hintText: '13'.tr,
-                            icon: Icons.password,
-                            myController: controller.repassword,
+                          GetBuilder<SignUpControllerImp>(
+                            builder: (controller) => CustomTextFormField(
+                              obScure: controller.isSelectedRePassword,
+                              onTap: () {
+                                controller.viewRePassword();
+                              },
+                              isNumber: true,
+                              valid: (val) {
+                                return inputValidator(
+                                    val!, 10, 14, "phonenumber");
+                              },
+                              lableText: "35".tr,
+                              hintText: '13'.tr,
+                              icon: controller.isSelectedRePassword
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              myController: controller.repassword,
+                            ),
                           ),
                           // ),
                           SizedBox(
