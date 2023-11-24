@@ -2,10 +2,8 @@ import 'package:e_commerce_app/bindings.dart';
 import 'package:e_commerce_app/core/localization/translations.dart';
 import 'package:e_commerce_app/core/service/services.dart';
 import 'package:e_commerce_app/routes.dart';
-import 'package:e_commerce_app/view/screen/language.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'core/localization/changelocal.dart';
 
 void main() async {
@@ -27,8 +25,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: controller.appTheme,
-      home: const ChangeLanguage(),
-      routes: routes,
+      // home: const ChangeLanguage(),
+getPages: routes,
+      // routes: routes,
       initialBinding: MyBindings(),
     );
   }
